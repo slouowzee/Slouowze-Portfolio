@@ -37,40 +37,34 @@
 	</head>
 
 	<body>
-		<!-- Boutons utilitaires en haut à droite -->
-		<div class="top-right-widgets">
-			<button class="widget-btn theme-switcher" data-i18n-aria="theme_switcher_aria" aria-label="Changer de thème">
-				<i class="fa-solid fa-moon"></i>
-			</button>
-			<button class="widget-btn language-switcher" data-i18n-aria="language_switcher_aria" aria-label="Changer de langue">
-				<span>FR</span>
-			</button>
-		</div>
-
-		<!-- Titre animé en haut à gauche (affiché après la première slide) -->
-		<button class="top-left-title" id="portfolioTitle" data-i18n-aria="nav_hero" aria-label="Retour à l'accueil">
-			<h1>Gaël Pilet</h1>
-			<span class="title-subtitle" data-i18n="portfolio_subtitle">Développeur Front-End</span>
-		</button>
+		<!-- Navigation fixe -->
+		<nav class="navbar">
+			<div class="navbar-brand">Gaël Pilet</div>
+			<div class="navbar-utils">
+				<button class="theme-switcher" aria-label="Changer de thème">
+					<i class="fa-solid fa-moon"></i>
+				</button>
+				<button class="language-switcher" aria-label="Changer de langue">
+					<i class="fa-solid fa-language"></i>
+					<span>FR</span>
+				</button>
+			</div>
+		</nav>
 
 		<!-- Container principal des slides -->
 		<main class="slider-container">
 			<!-- Les slides seront générées dynamiquement par JavaScript -->
 		</main>
 
-		<!-- Navigation par icônes en bas -->
-		<nav class="bottom-navigation">
-			<!-- Générés dynamiquement avec icônes -->
-		</nav>
+		<!-- Indicateurs de slides -->
+		<div class="slide-indicators">
+			<!-- Générés dynamiquement -->
+		</div>
 
 		<!-- JavaScript -->
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-		<script src="JS/locales.js"></script>
-		<script src="JS/i18n.js"></script>
-		<script src="JS/typing.js"></script>
 		<script src="JS/portfolio-slider.js"></script>
-		<script src="JS/theme.js"></script>
-		<script src="JS/load.js"></script>
+		<!-- Autres scripts existants (optionnels) -->
 		<script src="JS/form.js"></script>
 		<script src="JS/copyright.js"></script>
 	</body>

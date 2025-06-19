@@ -51,10 +51,12 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 	instagramUrl: instagramUrl,
 	twitterUrl: twitterUrl
 	}).then(function(response) {
-		alert("Message envoyé avec succès!");
+		const successMessage = window.i18n ? window.i18n.translate('contact_success_alert') : "Message envoyé avec succès!";
+		alert(successMessage);
 		console.log("Réponse EmailJS: ", response);
 	}, function(error) {
-		alert("Erreur lors de l'envoi du message.");
+		const errorMessage = window.i18n ? window.i18n.translate('contact_error_alert') : "Erreur lors de l'envoi du message.";
+		alert(errorMessage);
 		console.log("Erreur EmailJS: ", error);
 	});
 });

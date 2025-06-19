@@ -1,75 +1,168 @@
-// Animation d'écriture pour le terminal macOS/Linux
-const texts = [
-	"Étudiant", 
-	"Développeur web front-end", 
-	"Et back-end aussi", 
-	"Designer web à temps perdu",
-	"Fan de Terminal",
-	"Passionné de UI/UX",
-	"Créateur Web",
-	"Chanteur de Métal"
-];
-
-const typingSpeed = 100; // ms par caractère
-const erasingSpeed = 50; // ms par caractère 
-const pauseDuration = 1800; // ms entre écriture et effacement
-
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let isWaiting = false;
-
-function typeEffect() {
-	const element = document.getElementById("hero__job");
-	const currentText = texts[textIndex];
-	
-	if (!element) return; // Sécurité si l'élément n'existe pas
-	
-	// Préfixer le texte avec un indicateur de commande bash pour un style terminal
-	const prefix = "$ ";
-	
-	// Si on attend avant de commencer à effacer ou écrire
-	if (isWaiting) {
-		setTimeout(() => {
-			isWaiting = false;
-			typeEffect();
-		}, pauseDuration);
-		return;
-	}
-	
-	if (isDeleting) {
-		// Mode effacement
-		charIndex--;
-	} else {
-		// Mode écriture
-		charIndex++;
-	}
-	
-	// Mettre à jour le texte avec effet de clignotement du curseur
-	element.innerHTML = `${prefix}${currentText.substring(0, charIndex)}<span class="cursor" style="display:inline-block;"></span>`;
-	
-	// Calculer le délai pour le prochain caractère
-	let timeout = isDeleting ? erasingSpeed : typingSpeed;
-	
-	// Gérer la transition entre écriture et effacement
-	if (!isDeleting && charIndex === currentText.length) {
-		isWaiting = true;
-		isDeleting = true;
-	} else if (isDeleting && charIndex === 0) {
-		isDeleting = false;
-		textIndex = (textIndex + 1) % texts.length;
-		isWaiting = true;
-	}
-	
-	if (!isWaiting) {
-		setTimeout(typeEffect, timeout);
-	} else {
-		typeEffect(); // Appelle immédiatement pour traiter l'attente
-	}
+// Animation de cycle de texte pour le hero
+class TypingCycler {
+    constructor(element, texts, options = {}) {
+        this.element = element;
+        this.texts = texts;
+        this.options = {
+            typingSpeed: options.typingSpeed || 50,
+            erasingSpeed: options.erasingSpeed || 30,
+            delayBetweenTexts: options.delayBetweenTexts || 2000,
+            delayBeforeRestart: options.delayBeforeRestart || 1000,
+            ...options
+        };
+        
+        this.currentTextIndex = 0;
+        this.currentCharIndex = 0;
+        this.isErasing = false;
+        this.isTyping = false;
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.element && this.texts.length > 0) {
+            this.element.innerHTML = '';
+            this.startCycle();
+        }
+    }
+    
+    startCycle() {
+        this.isTyping = true;
+        this.typeText();
+    }
+    
+    typeText() {
+        const currentText = this.texts[this.currentTextIndex];
+        
+        if (this.currentCharIndex < currentText.length && !this.isErasing) {
+            this.element.innerHTML = currentText.substring(0, this.currentCharIndex + 1) + '<span class="typing-cursor">|</span>';
+            this.currentCharIndex++;
+            
+            setTimeout(() => this.typeText(), this.options.typingSpeed);
+        } else if (!this.isErasing) {
+            // Texte terminé, attendre avant d'effacer
+            setTimeout(() => {
+                this.isErasing = true;
+                this.eraseText();
+            }, this.options.delayBetweenTexts);
+        }
+    }
+    
+    eraseText() {
+        const currentText = this.texts[this.currentTextIndex];
+        
+        if (this.currentCharIndex > 0) {
+            this.element.innerHTML = currentText.substring(0, this.currentCharIndex - 1) + '<span class="typing-cursor">|</span>';
+            this.currentCharIndex--;
+            
+            setTimeout(() => this.eraseText(), this.options.erasingSpeed);
+        } else {
+            // Texte effacé, passer au suivant
+            this.isErasing = false;
+            this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length;
+            
+            setTimeout(() => this.typeText(), this.options.delayBeforeRestart);
+        }
+    }
+    
+    updateTexts(newTexts) {
+        this.texts = newTexts;
+        if (this.texts.length > 0) {
+            // Redémarrer avec les nouveaux textes
+            this.currentTextIndex = 0;
+            this.currentCharIndex = 0;
+            this.isErasing = false;
+            if (this.isTyping) {
+                this.typeText();
+            }
+        }
+    }
+    
+    pause() {
+        this.isTyping = false;
+    }
+    
+    resume() {
+        if (!this.isTyping) {
+            this.isTyping = true;
+            this.typeText();
+        }
+    }
+    
+    restart() {
+        this.currentTextIndex = 0;
+        this.currentCharIndex = 0;
+        this.isErasing = false;
+        this.element.innerHTML = '';
+        this.startCycle();
+    }
 }
 
-// Attendre que le DOM soit chargé pour initialiser la machine à écrire
-document.addEventListener('DOMContentLoaded', function() {
-	// Ajouter un délai avant de commencer pour un effet réaliste
-	setTimeout(typeEffect, 1000);
+// Gestionnaire global pour l'animation de cycling du hero
+class HeroCyclingManager {
+    constructor() {
+        this.typingCycler = null;
+        this.isInitialized = false;
+        this.init();
+    }
+    
+    init() {
+        // Attendre que i18n soit prêt
+        if (typeof window.i18n !== 'undefined') {
+            this.setupCycling();
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => this.setupCycling(), 100);
+            });
+        }
+        
+        // Écouter les changements de langue
+        document.addEventListener('languageChanged', (event) => {
+            this.updateTextsForLanguage(event.detail.language);
+        });
+    }
+    
+    setupCycling() {
+        const cyclingElement = document.querySelector('.hero-job-cycling');
+        if (!cyclingElement) return;
+        
+        const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : 'fr';
+        const texts = this.getTextsForLanguage(currentLang);
+        
+        if (texts.length > 0) {
+            this.typingCycler = new TypingCycler(cyclingElement, texts, {
+                typingSpeed: 60,
+                erasingSpeed: 40,
+                delayBetweenTexts: 2500,
+                delayBeforeRestart: 800
+            });
+            this.isInitialized = true;
+        }
+    }
+    
+    getTextsForLanguage(language) {
+        if (typeof locales !== 'undefined' && locales[language] && locales[language].hero_job_cycling) {
+            return locales[language].hero_job_cycling;
+        }
+        return [];
+    }
+    
+    updateTextsForLanguage(language) {
+        if (this.typingCycler && this.isInitialized) {
+            const newTexts = this.getTextsForLanguage(language);
+            if (newTexts.length > 0) {
+                this.typingCycler.updateTexts(newTexts);
+            }
+        }
+    }
+}
+
+// Initialisation automatique
+document.addEventListener('DOMContentLoaded', () => {
+    window.heroCycling = new HeroCyclingManager();
 });
+
+// Export pour utilisation dans d'autres modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { TypingCycler, HeroCyclingManager };
+}

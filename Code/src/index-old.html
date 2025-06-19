@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- Métadonnées de base - seront mises à jour dynamiquement -->
+		<title data-i18n-title="page_title">Pilet "Slouowze" Gaël - Portfolio - Développeur Front-End</title>
+		<meta name="description" data-i18n-meta="page_description" content="Portfolio de Pilet Gaël, développeur front-end. Découvrez mes projets et prennez contacte avec moi pour parler du votre !">
+		<meta name="author" content="Pilet Gaël">
+		<meta name="theme-color" content="#6f4e37">
+		
+		<!-- Favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		
+		<!-- Open Graph - métadonnées dynamiques pour le multilingue -->
+		<meta property="og:title" data-i18n-og="og_title" content="Pilet Gaël - Portfolio">
+		<meta property="og:description" data-i18n-og="og_description" content="Hey, je suis Pilet Gaël, développeur front-end. Découvrez mes projets et prennez contacte avec moi pour parler du votre !">
+		<meta property="og:image" content="#.jpg">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="">
+		<meta property="og:locale" data-i18n-locale content="fr_FR">
+		<meta property="og:locale:alternate" content="en_US">
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" data-i18n-twitter="twitter_title" content="Pilet Gaël - Portfolio">
+		<meta name="twitter:description" data-i18n-twitter="twitter_description" content="Hey, je suis Pilet Gaël, développeur front-end. Découvrez mes projets et prennez contacte avec moi pour parler du votre !">
+		<meta name="twitter:image" content="#.jpg">
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+		
+		<!-- CSS -->
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<main class="container">
+			<header id="header" class="header">
+				<nav class="navbar" role="navigation" aria-label="Navigation principale">
+					<button class="navbar-hamburger" aria-label="Menu de navigation" aria-expanded="false">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<ul class="navbar__list">
+						<li><a href="#about" data-i18n="nav_about">À propos</a></li>
+						<li><a href="#techs" data-i18n="nav_techs">Technologies</a></li>
+						<li><a href="#services" data-i18n="nav_services">Services</a></li>
+						<li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
+						<li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+					</ul>
+					<div class="navbar-utils">
+						<button class="theme-switcher" aria-label="Changer de thème" data-i18n-aria="theme_switcher_aria">
+							<i class="fa-solid fa-moon"></i>
+						</button>
+						<button class="language-switcher" aria-label="Changer de langue" data-i18n-aria="language_switcher_aria">
+							<i class="fa-solid fa-language"></i>
+							<span data-i18n="language_switcher_text">FR</span>
+						</button>
+						<button class="mode-switcher" aria-label="Basculer vers le mode professionnel" data-i18n-aria="mode_switch_aria_pro">
+							<i class="fa-solid fa-briefcase"></i>
+							<span data-i18n="mode_button_text_pro">PRO</span>
+						</button>
+					</div>
+				</nav>
+				<div class="hero">
+					<div class="hero__text">
+						<h1 class="hero__presentation">
+							<span class="hero__greeting" data-i18n="hero_greeting">Bonjour, je suis</span>
+							<span class="hero__name" data-i18n="hero_name">Pilet Gaël,</span>
+							<span id="hero__job" data-i18n="hero_job"></span>
+						</h1>
+						<hr class="hero__separator">
+						<blockquote class="hero__ambitious" data-i18n="hero_quote">"Pour moi, imaginer, concevoir, créer, à partir de zéro est l'une des choses les plus satisfaisantes dans le métier de développeur web."</blockquote>
+					</div>
+					<div class="hero__image">
+						<img src="#" alt="Photo de profil de Pilet Gaël" class="hero__image__photo">
+					</div>
+				</div>
+			</header>
+
+			<section id="about" class="about">
+				<h2 class="about__title" data-i18n="about_title">Et si on parlais un peu de moi ?</h2>
+
+				<hr>
+
+				<div class="about-container">
+					<div class="about__text">
+						<h3 class="about__text__heading" data-i18n="about_text_heading">Mon parcours</h3>
+						<p class="about__text__content" data-i18n="about_p1">
+							Ay, salut, ça va ?<br>
+							Nan en vrai, je peux pas t'entendre ^-^'...<br>
+							Comme tu as pu le voir dans le titre de la page, je m'appelle Gaël, je suis développeur machin chose et bidule, je fais des trucs bien et d'autres trucs cool, et j'en suis fier, donc tant mieux ;)<br>
+							Plus sérieusement, je suis étudiant en BTS SIO "Services Informatiques aux Organisations", où j'étudie le développement web, en parallèle de plein d'autres sujets : développement web statique et dynamique (surtout dynamique), développement d'applications avec la POO et Windows Forms, compréhension des données, et bien plus encore.<br>
+							En gros, j'ai déjà réalisé un serveur Nextcloud local sécurisé, un site statique sympa, un site WordPress, différents serveurs, utilisé des protocoles comme SSH, fait du versioning, bossé avec plein de langages… et j'en passe, ce serait trop long à énumérer.<br>
+						</p>
+						
+						<div id="more-info" style="display: none;" class="casual-content">
+							<hr>
+
+							<p class="about__text__content" data-i18n="about_p2">
+								À part l'école, j'ai aussi un background en développement, pas forcément web, mais j'ai de l'expérience et une bonne logique, ce qui m'aide pas mal, à vrai dire.<br>
+								J'ai fait du Python au lycée et en autodidacte pendant environ un an et demi, jusqu'à la POO et Tkinter… :smileypascontent:<br>
+								J'ai aussi bien mangé du C, notamment lors d'une piscine à 42. Ça m'a aidé, tant pour l'apprentissage en autonomie que pour la sociabilisation et plein d'autres trucs. C'était vraiment une bonne expérience… 9/10, je recommande, mais soyez dans la bonne coalition si vous voulez être pris. Être l'un des meilleurs ne sert à rien si vous n'êtes pas aidé.<br>
+							</p>
+
+							<p class="about__text__content" data-i18n="about_p3">
+								Bien, maintenant vous savez qui je suis dans le monde du dev. Mais qui suis-je vraiment ? Bah… Batman ! Vous n'aviez pas remarqué ? Attends, je parle à qui, là ? Moi ou toi ? Bon, pas grave.<br>
+								Bref, voici mon top 3 des meilleures choses dans ma vie :<br>
+							</p>
+							
+							<ul class="about__text__interests casual-content">
+								<li data-i18n="about_interest_1">Le chant. Eh ouais, je suis chanteur ! J'aimerais bien en faire mon métier, mais on verra plus tard. Ça fait maintenant 7 ans que je chante, et pas dans n'importe quel genre : le ✨Métal✨. Un vrai coup de cœur pour moi depuis longtemps, notamment avec Avatar (hein ? Non, pas le film ni le dessin animé, "Avatar", les vrais !). Je chante en français comme en anglais, j'en écoute tous les jours, je fais des covers, j'écris des textes, etc.</li>
+								<li data-i18n="about_interest_2">Le sport. Ça ne se voit peut-être pas, mais j'aime bien au final. Ça m'aide à affiner mon corps pour atteindre celui que je veux, enfin bref…</li>
+								<li data-i18n="about_interest_3">Les activités : les jeux vidéo, même si j'ai de moins en moins de temps… dure vie. Je joue aussi de la guitare, j'essaie de progresser. Je ne serai sûrement pas leader avec, mais j'aime bien avoir un petit niveau sympa. Et puis manger, comme tout le monde, je suppose (la cuisine rentre dedans aussi). Et plein d'autres trucs qui rendent la vie cool.</li>
+							</ul>
+
+							<hr>
+
+							<p class="about__text__content" data-i18n="about_p4">
+								Bon, je crois t'avoir assez retenu. Et puis si tu lis ça, c'est que tu voulais en savoir plus, vu que tu as cliqué sur le bouton rouge, il est bleu ? ah. Merci en tout cas d'avoir lu ! Je sais que ma biographie est meilleure qu'un bon thriller de Stephen King, mais pas besoin de me le rappeler hein.<br>
+								Bise ❤️
+							</p>
+						</div>
+						<button id="load-more" data-i18n="about_more">$ cat more_details.txt <i class="fa-solid fa-terminal"></i></button>
+					</div>
+					
+					<div class="stats-container">
+						<h3 class="about__stats__heading" data-i18n="about_stats_heading">En quelques chiffres</h3>
+						<div class="stats-box">
+							<div class="terminal-scanline"></div>
+							<div class="stats-grid">
+								<div class="stat-item">
+									<i class="fa-solid fa-code stat-icon"></i>
+									<span class="stat-value">7+</span>
+									<span class="stat-label" data-i18n="stat_languages">Langages de programmation</span>
+								</div>
+								<div class="stat-item">
+									<i class="fa-solid fa-graduation-cap stat-icon"></i>
+									<span class="stat-value">BTS</span>
+									<span class="stat-label" data-i18n="stat_education">SIO en cours</span>
+								</div>
+								<div class="stat-item casual-content">
+									<i class="fa-solid fa-music stat-icon"></i>
+									<span class="stat-value">7</span>
+									<span class="stat-label" data-i18n="stat_singing">Années de chant</span>
+								</div>
+								<div class="stat-item">
+									<i class="fa-solid fa-laptop-code stat-icon"></i>
+									<span class="stat-value">4+</span>
+									<span class="stat-label" data-i18n="stat_experience">Ans d'expérience</span>
+								</div>
+								<div class="stat-item">
+									<i class="fa-solid fa-project-diagram stat-icon"></i>
+									<span class="stat-value">10+</span>
+									<span class="stat-label" data-i18n="stat_projects">Projets réalisés</span>
+								</div>
+								<div class="stat-item casual-content">
+									<i class="fa-solid fa-coffee stat-icon"></i>
+									<span class="stat-value">∞</span>
+									<span class="stat-label" data-i18n="stat_coffee">Tasses de café</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="techs" class="techs">
+				<h2 class="techs__title" data-i18n="tech_title">EH eh, regarde tout ça ! >-<</h2>
+			    
+				<hr>
+			    
+				<div class="techs__card__langage">
+					<h3 class="techs__card__title" data-i18n="tech_subtitle">
+						Vous avez vu ? Je parle beaucoup de langages >_<'<br>
+						Et en plus je suis polyvalant ^-^
+					</h3>
+				
+					<div class="techs__card__wrapper">
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_frontend">Front-end</h4>
+							<div class="tech-icons">
+								<i class="fa-brands fa-html5 tech-icon tech-icon--html" title="HTML5" aria-label="HTML5"></i>
+								<i class="fa-brands fa-css3-alt tech-icon tech-icon--css" title="CSS3" aria-label="CSS3"></i>
+								<i class="fa-brands fa-js tech-icon tech-icon--js" title="JavaScript" aria-label="JavaScript"></i>
+							</div>
+						</div>
+						
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_backend">Back-end</h4>
+							<div class="tech-icons">
+								<i class="fa-brands fa-php tech-icon tech-icon--php" title="PHP" aria-label="PHP"></i>
+								<i class="fa-brands fa-python tech-icon tech-icon--python" title="Python" aria-label="Python"></i>
+								<span class="tech-custom tech-icon--c" title="C" aria-label="Langage C">C</span>
+								<span class="tech-custom tech-icon--csharp" title="C#" aria-label="C Sharp">C#</span>
+							</div>
+						</div>
+                        
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_cms">CMS, Frameworks & Bibliothèques</h4>
+							<div class="tech-icons">
+								<i class="fa-brands fa-wordpress tech-icon tech-icon--wordpress" title="WordPress" aria-label="WordPress"></i>
+								<span class="tech-custom tech-icon--htmx" title="htmx" aria-label="htmx">htmx</span>
+							</div>
+						</div>
+						
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_db">Base de données</h4>
+							<div class="tech-icons">
+								<i class="fa-solid fa-database tech-icon tech-icon--sql" title="SQL" aria-label="SQL"></i>
+								<span class="tech-custom tech-icon--mysql" title="MySQL" aria-label="MySQL">MySQL</span>
+							</div>
+						</div>
+						
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_tools">Outils de développement</h4>
+							<div class="tech-icons">
+								<i class="fa-brands fa-git-alt tech-icon tech-icon--git" title="Git" aria-label="Git"></i>
+								<i class="fa-brands fa-github tech-icon tech-icon--github" title="GitHub" aria-label="GitHub"></i>
+								<i class="fa-brands fa-gitlab tech-icon tech-icon--gitlab" title="GitLab" aria-label="GitLab"></i>
+								<span class="tech-custom tech-icon--vscode" title="VS Code" aria-label="Visual Studio Code">VS Code</span>
+								<span class="tech-custom tech-icon--vs" title="Visual Studio" aria-label="Visual Studio">VS</span>
+								<span class="tech-custom tech-icon--xampp" title="XAMPP" aria-label="XAMPP">XAMPP</span>
+								<span class="tech-custom tech-icon--vim" title="Vim" aria-label="Vim">Vim</span>
+							</div>
+						</div>
+
+						<div class="tech-group">
+							<h4 class="tech-group__title" data-i18n="tech_systems">Systèmes & Environnements</h4>
+							<div class="tech-icons">
+								<i class="fa-solid fa-terminal tech-icon tech-icon--terminal" title="Shell" aria-label="Terminal Shell"></i>
+								<span class="tech-custom tech-icon--dos" title="DOS" aria-label="DOS">DOS</span>
+								<i class="fa-brands fa-windows tech-icon tech-icon--windows" title="Windows 11" aria-label="Windows 11"></i>
+								<i class="fa-brands fa-linux tech-icon tech-icon--linux" title="Linux Ubuntu/Debian" aria-label="Linux Ubuntu/Debian"></i>
+								<i class="fa-brands fa-apple tech-icon tech-icon--macos" title="macOS" aria-label="macOS"></i>
+								<span class="tech-custom tech-icon--vmware" title="VMware" aria-label="VMware">VMware</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="services" class="services">
+				<h2 class="services__title" data-i18n="services_title">Je peux quand même te proposer quelques choses. :></h2>
+
+				<hr>
+
+				<div class="services-container">
+					<div class="service-card">
+						<h3 class="service-card__title" data-i18n="service_1_title">Site web static, sécurisé, responsive et agréable.</h3>
+						<p class="service-card__text" data-i18n="service_1_text">Afin de satisfaire ton envie d'exposer ce qui te passionne, je peux te proposer un site web entièrement fonctionnel, optimisé et bien référencé pour le SEO, pour que tu puisse toucher le plus grand nombre de personnes. ;)</p>
+					</div>
+					<div class="service-card">
+						<h3 class="service-card__title" data-i18n="service_2_title">"There is more to come..."</h3>
+						<p class="service-card__text" data-i18n="service_2_text">Ça, c'est ce que je dirais si j'étais Anglais. J'étudie toujours, donc mes services sont limités. Cependant, si vous avez des requêtes spéciales, je serai heureux d'en apprendre d'avantage ! Il faudra juste scroller un peu et m'envoyer un mail :)</p>
+					</div>
+				</div>
+			</section>
+			<section id="projects" class="projects">
+                <h2 class="projects__title" data-i18n="projects_title">Faisons un petit tour dans ma galerie de projets !</h2>
+                <hr>
+                <div class="projects-container">
+                    <div class="project-card">
+                        <h3 class="project-card__title" data-i18n="project_1_title">Le Monde de Slou</h3>
+                        <p class="project-card__text" data-i18n="project_1_text">Le Monde de Slou est un petit site static que j'ai dû développer en projet professionnel à mon lycée pour le faire noté.</p>
+                        <a href="#" class="project-card__link" data-i18n="project_view">Voir le site</a>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title" data-i18n="project_2_title">Portfolio</h3>
+                        <p class="project-card__text" data-i18n="project_2_text">Ça, bah c'est mon portfolio, vous êtes déjà dessus x). Si vous cliquez sur le bouton, vous ne serez pas du tout renvoyé sur une page troll.</p>
+                        <a href="#" class="project-card__link" data-i18n="project_view">Voir le site</a>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title" data-i18n="project_more_title">"There is more to come... Encore..."</h3>
+                        <p class="project-card__text" data-i18n="project_more_text">Comme pour les services, je suis en train de travailler sur de nouveaux projets, mais je ne peux pas tout faire en même temps. Si vous avez des idées, n'hésitez pas à me contacter !</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="contact">
+                <h2 class="contact__title" data-i18n="contact_title">Une envie de papotter ?</h2>
+                <hr>
+                <p class="contact__text" data-i18n="contact_text">Envie de me contacter pour parler de votre projet, de vos idées, ou juste pour discuter ?<br>N'hésitez pas à m'envoyer un mail, je vous répondrai dès que possible ! :D<br>Mais vous pouvez tout de même communiquer avec moi via mes réseaux sociaux ;) !</p>
+                <form id="contact-form" class="contact-form">
+                    <label for="lastname" data-i18n="contact_lastname">Nom:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                    <label for="firstname" data-i18n="contact_firstname">Prénom:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                    <label for="email" data-i18n="contact_email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="subject" data-i18n="contact_subject">Objet:</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <label for="message" data-i18n="contact_message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit" data-i18n="contact_submit">Envoyer</button>
+                </form>
+            </section>
+		</main>
+		<footer>
+            <section class="footer-goodbye">
+                <h2 data-i18n="footer_goodbye">On se sépare déjà ;-; </h2>
+                <p data-i18n="footer_goodbye_text">À notre grand regret, tu es déjà arrivé en bas de la page, juste en dessous t'a le footer, et y'a pleins d'infos intéréssante dessus, mais si tu lis ça c'est que tu veux me quitter ou bien que tu veux faire le tour de la page. Mais n'empâche, je te remercie du temps que tu m'a accordé aujourd'hui, je t'en suis reconnaissant ! J'espère te revoir bientôt ^-^</p>
+            </section>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3 data-i18n="footer_nav_heading">Navigation</h3>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_nav_home">Haut de page</a></li>
+                        <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+                        <li><a href="#techs" data-i18n="nav_techs">Technologies</a></li>
+                        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                        <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column casual-content">
+                    <h3 data-i18n="footer_support_heading">Me soutenir</h3>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_support_paypal">PayPal</a></li>
+                        <li><a href="#" data-i18n="footer_support_kofi">Ko-fi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-designed" data-i18n="footer_designed">Conçu avec <i class="fa-solid fa-heart footer__heart" aria-hidden="true"></i> par moi-même ">-<"</p>
+            <p id="copyright"></p>
+        </footer>
+		<!-- JavaScript -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script src="JS/form.js"></script>
+		<script src="JS/copyright.js"></script>
+		<script src="JS/locales.js"></script>
+		<script src="JS/i18n.js"></script>
+		<script src="JS/theme.js"></script>
+		<script src="JS/typing.js"></script>
+		<script src="JS/load.js"></script>
+	</body>
+</html>
